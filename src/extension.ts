@@ -7,38 +7,6 @@ import * as ns from './namespaces';
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "lua-autocomplete-for-ardupilot" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('lua-autocomplete-for-ardupilot.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Lua Autocomplete for Ardupilot!');
-	});
-
-    let hoverdisposable = vscode.languages.registerHoverProvider('lua', {
-        provideHover(document, position, token) {
-
-            const range = document.getWordRangeAtPosition(position);
-            const word = document.getText(range);
-            console.log("hello")
-            if (word == "mission") {
-
-                return new vscode.Hover({
-                    language: "Hello language",
-                    value: "Hello Value"
-                });
-            }
-        }
-    })
-
-	context.subscriptions.push(disposable)
-    context.subscriptions.push(hoverdisposable)
-
     context.subscriptions.push(
         vscode.languages.registerCompletionItemProvider('lua',  {
             provideCompletionItems(document, position, token, context) {

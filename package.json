@@ -6,11 +6,14 @@
   "engines": {
     "vscode": "^1.74.0"
   },
+  "publisher": "developer-3",
+  "repository": {
+    "url": "https://github.com/aided-research/ardupilot-lua-vscode-extension"
+  },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:lua-autocomplete-for-ardupilot.helloWorld",
     "onLanguage:lua"
   ],
   "main": "./dist/extension.js",
